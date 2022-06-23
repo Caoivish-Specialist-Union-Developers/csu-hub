@@ -55,21 +55,12 @@ export function HeaderSearch() {
     return (
         <Header height={56} className={classes.header} mb={120}>
             <div className={classes.inner}>
-                <Group>
-                    <Burger opened={opened} onClick={() => toggleOpened()} size="sm" />
-                    <img src={WardenLogo}  height={64.5} width={66.4}/ >
-                    {/* <MantineLogo /> */}
-                </Group>
-
-                <Group>
-                    <Group ml={50} spacing={5} className={classes.links}>
-                        
-                        <a href='#' className={classes.link}>Home</a>
-                        <a href='#' className={classes.link}>Rooms</a>
-                        <a href='#' className={classes.link}>Live Stats</a>
+                    <Group spacing={5} className={classes.links}>
+                        <a href='/' className={classes.link}>Home</a>
+                        <a href='/rooms' className={classes.link}>Rooms</a>
+                        <a href='/stats' className={classes.link}>Live Stats</a>
 
                     </Group>
-                </Group>
             </div>
         </Header>
     );
