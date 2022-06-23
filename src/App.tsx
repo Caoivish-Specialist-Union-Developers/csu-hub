@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="app">
       <MantineProvider theme={{ colorScheme: 'dark' }} withGlobalStyles withNormalizeCSS>
-        <Navbar links={[]} />
+        <Navbar/>
       </MantineProvider>
       <Router />
     </div>

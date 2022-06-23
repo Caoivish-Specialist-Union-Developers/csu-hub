@@ -47,20 +47,10 @@ interface HeaderSearchProps {
     links: { link: string; label: string }[];
 }
 
-export function HeaderSearch({ links }: HeaderSearchProps) {
+export function HeaderSearch() {
     const [opened, toggleOpened] = useBooleanToggle(false);
     const { classes } = useStyles();
 
-    const items = links.map((link) => (
-        <a
-            key={link.label}
-            href={link.link}
-            className={classes.link}
-            onClick={(event) => event.preventDefault()}
-        >
-            {link.label}
-        </a>
-    ));
 
     return (
         <Header height={56} className={classes.header} mb={120}>
@@ -73,7 +63,11 @@ export function HeaderSearch({ links }: HeaderSearchProps) {
 
                 <Group>
                     <Group ml={50} spacing={5} className={classes.links}>
-                        {items}
+                        
+                        <a href='#' className={classes.link}>Home</a>
+                        <a href='#' className={classes.link}>Rooms</a>
+                        <a href='#' className={classes.link}>Live Stats</a>
+
                     </Group>
                 </Group>
             </div>
