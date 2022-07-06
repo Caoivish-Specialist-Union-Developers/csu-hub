@@ -3,10 +3,12 @@
 </template>
 
 <script lang="ts">
-import { Options, Vue } from 'vue-class-component';
+// eslint-ignore
+import { Options, Vue } from 'vue-class-component'
 
+// eslint-ignore
 @Options({
-  components: {},
+  components: {}
 })
 export default class App extends Vue {}
 </script>
@@ -17,7 +19,7 @@ export default class App extends Vue {}
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: #c5c2c2;
   margin-top: 60px;
 }
 </style>
