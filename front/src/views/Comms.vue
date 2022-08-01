@@ -10,7 +10,7 @@ import { Options, Vue } from 'vue-class-component'
 @Options({
   components: {}
 })
-export default class Map extends Vue {}
+export default class Comms extends Vue {}
 </script>
 
 <style scoped lang="scss">

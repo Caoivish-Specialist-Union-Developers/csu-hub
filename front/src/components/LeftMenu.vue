@@ -53,6 +53,11 @@ import CollapseIcon from '@/assets/svg/CollapseIcon.vue'
         path: '/missions'
       },
       {
+        label: 'Orders',
+        svg: TaggedIcon,
+        path: '/orders'
+      },
+      {
         label: 'Pipeline',
         svg: TaggedIcon,
         path: '/pipeline'
