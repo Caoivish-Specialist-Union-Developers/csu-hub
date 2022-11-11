@@ -1,54 +1,25 @@
-require("dotenv").config();
-import express from 'express';
-import * as cors from 'cors';
-import * as mysql from 'mysql';
-import { routes } from './routes';
-// import { setToken } from './secret'
+import express from 'express'
+import cors from 'cors'
+import * as dotenv from 'dotenv'
+import db from 'helpers/db'
 
-// setToken()
+import { routes } from './routes'
 
-
-const con = mysql.createConnection({
-    host: process.env.DBHOST,
-    user: process.env.DBUSER,
-    password: process.env.DBPASS,
-    database: process.env.DBNAME,
-    multipleStatements: false
-});
-
-const app = express();
+const Port = process.env.PORT || 3000
 
 
 
+dotenv.config()
+const app = express()
+app.use(cors)
+app.use(express.json())
+app.use(express.urlencoded())
 
-
-app.use(express.json());
-
-app.all(["*"], (req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    next();
-});
-
-
-
-
-
-con.connect(function (err) {
-    if (err) throw err;
-    console.log("Database Connected!");
-});
-
-
-
-app.use(routes);
-
-app.listen(process.env.PORT, () => {
-    console.log(`started on https://localhost:${process.env.PORT}`)
+app.get('/', (req, res) => {
+    res.send(db.query('select * from inventories'))
 })
 
-export { con as con, }
 
-// CREATE USER 'pi'@'192.168.1.' IDENTIFIED BY 'davis';
-// GRANT ALL PRIVILEGES ON . TO 'pi'@'%';
-// FLUSH PRIVILEGES;
+app.listen(Port, () => {
+    console.log(`started on port : ${Port}`)
+})
