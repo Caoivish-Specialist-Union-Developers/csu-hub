@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
 import * as dotenv from 'dotenv'
-import db from 'helpers/db'
+import db from './helpers/db'
 
 import { routes } from './routes'
 
@@ -17,6 +17,10 @@ app.use(express.urlencoded())
 
 app.get('/', (req, res) => {
     res.send(db.query('select * from inventories'))
+})
+app.post('/', (req, res) => {
+    console.log(req.query.key)
+    console.dir(req.body)
 })
 
 
